@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Terrasa — boutique coastal retreat на березі Чорного моря." />
+<title>Terrasa — Boutique Coastal Retreat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --sand:#F4E6D8;
+  --deep:#0F2B3A;
+  --amber:#F29E2E;
+  --white:#FBFBFB;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  overflow-x:hidden;
+  background:#08131d;
+  color:white;
+  font-family:Inter,sans-serif;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+header{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 40px);
+  max-width:1200px;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  padding:10px 14px;
+  border-radius:14px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--sand),var(--amber));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-weight:700;
+  font-family:"Playfair Display",serif;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+}
+
+.lang-switch button{
+  border:none;
+  cursor:pointer;
+  padding:10px 14px;
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
+  color:white;
+  backdrop-filter:blur(10px);
+}
+
+.lang-switch button.active{
+  background:var(--amber);
+  color:#111;
+  font-weight:700;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:14px;
+  background:linear-gradient(90deg,var(--amber),#ffd5a0);
+  color:#111;
+  font-weight:700;
+  transition:.3s;
+  border:none;
+  cursor:pointer;
+  text-align:center;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn.ghost{
+  background:rgba(255,255,255,.08);
+  color:white;
+}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+  url('hotel44.jpg') center/cover no-repeat;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:140px 20px 80px;
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+
+.hero-copy{
+  flex:1;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  opacity:.8;
+  margin-bottom:15px;
+}
+
+.title{
+  font-size:62px;
+  line-height:1.05;
+  margin:0 0 20px;
+  font-family:"Playfair Display",serif;
+}
+
+.subtitle{
+  font-size:18px;
+  line-height:1.7;
+  max-width:650px;
+  opacity:.9;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.hero-card{
+  width:400px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(15px);
+  padding:24px;
+  border-radius:22px;
+}
+
+.hero-card h3{
+  margin-top:0;
+  font-family:"Playfair Display",serif;
+}
+
+section{
+  padding:90px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin:0 0 10px;
+  font-family:"Playfair Display",serif;
+}
+
+.gallery{
+  column-count:3;
+  column-gap:18px;
+}
+
+.photo{
+  break-inside:avoid;
+  margin-bottom:18px;
+  overflow:hidden;
+  border-radius:18px;
+  position:relative;
+}
+
+.photo img{
+  transition:.6s;
+}
+
+.photo:hover img{
+  transform:scale(1.05);
+}
+
+.caption{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  background:rgba(0,0,0,.45);
+  padding:8px 12px;
+  border-radius:10px;
+  backdrop-filter:blur(10px);
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,.05);
+  padding:22px;
+  border-radius:20px;
+  backdrop-filter:blur(12px);
+}
+
+.map-wrap{
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.map-wrap iframe{
+  width:100%;
+  height:420px;
+  border:none;
+}
+
+.contacts{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.contact-card{
+  flex:1;
+  min-width:260px;
+  background:rgba(255,255,255,.05);
+  padding:22px;
+  border-radius:20px;
+}
+
+.glass-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  padding:14px 18px;
+  border-radius:14px;
+  background:rgba(255,255,255,.08);
+  margin-top:12px;
+  backdrop-filter:blur(10px);
+}
+
+footer{
+  padding:40px 20px;
+  text-align:center;
+  background:#050b11;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .hero-inner{
+    flex-direction:column;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    column-count:2;
+  }
+
+  .hero-card{
+    width:100%;
+  }
+}
+
+@media(max-width:640px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  header{
+    width:calc(100% - 20px);
+    left:10px;
+    right:10px;
+    transform:none;
+    flex-direction:column;
+    align-items:stretch;
+    top:10px;
+  }
+
+  .brand{
+    justify-content:center;
+  }
+
+  .controls{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .lang-switch{
+    width:100%;
+  }
+
+  .lang-switch button{
+    flex:1;
+  }
+
+  .controls .btn{
+    width:100%;
+  }
+
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-inner{
+    padding:220px 14px 70px;
+  }
+
+  .title{
+    font-size:36px;
+    line-height:1.1;
+  }
+
+  .subtitle{
+    font-size:16px;
+    max-width:100%;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+  }
+
+  .gallery{
+    column-count:1;
+  }
+
+  .contacts{
+    flex-direction:column;
+  }
+
+  .contact-card{
+    min-width:100%;
+  }
+
+  .glass-btn{
+    width:100%;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="brand">
+<div class="logo">T</div>
+
+<div>
+<h1>Terrasa</h1>
+<p id="brandTag">Boutique Coastal Retreat</p>
+</div>
+</div>
+
+<div class="controls">
+
+<div class="lang-switch">
+<button id="lang-uk" class="active">Українська</button>
+<button id="lang-en">English</button>
+</div>
+
+<a href="#contacts" class="btn" id="bookTop">
+Забронювати
+</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-inner">
+
+<div class="hero-copy">
+
+<div class="eyebrow" id="eyebrow">
+Terrasa — seaside boutique
+</div>
+
+<h2 class="title" id="heroTitle">
+Terrasa — Теплий відпочинок на березі Чорного моря
+</h2>
+
+<p class="subtitle" id="heroSubtitle">
+Місце, де закати пахнуть морем, а кожна кімната — як обійми теплого світла.
+</p>
+
+<div class="hero-actions">
+
+<a href="#contacts" class="btn" id="bookNow">
+Забронювати
+</a>
+
+<a href="#gallery" class="btn ghost" id="galleryBtn">
+Галерея
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<h3 id="cardTitle">
+Забронюйте номер
+</h3>
+
+<p id="cardText">
+Номери з видом на море та атмосферою затишку.
+</p>
+
+<a href="#contacts" class="btn" id="bookCard">
+Забронювати
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<div class="section-title">
+<h2 id="galleryTitle">Галерея</h2>
+<p id="gallerySub">Атмосфера теплого відпочинку біля моря.</p>
+</div>
+
+<div class="gallery">
+
+<div class="photo">
+<img src="hotel11.jpg" alt="">
+<div class="caption" id="caption1">Затишний номер</div>
+</div>
+
+<div class="photo">
+<img src="hotel22.jpg" alt="">
+<div class="caption" id="caption2">Веранда біля моря</div>
+</div>
+
+<div class="photo">
+<img src="hotel33.jpg" alt="">
+<div class="caption" id="caption3">Номер з видом</div>
+</div>
+
+<div class="photo">
+<img src="hotel44.jpg" alt="">
+<div class="caption" id="caption4">Головний вид</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2 id="aboutTitle">Про нас</h2>
+<p id="aboutSub">Boutique hotel на березі Чорного моря.</p>
+</div>
+
+<div class="about">
+
+<div>
+
+<p id="aboutText">
+Terrasa — це атмосферний boutique hotel біля моря з теплим дизайном, затишними номерами та спокійною атмосферою.
+</p>
+
+<p id="aboutText2">
+Ідеальне місце для відпочинку, натхнення та красивих заходів сонця.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 id="roomsTitle">Номери</h3>
+
+<p id="roomsText">
+Комфортні номери з Wi-Fi, кондиціонером та видом на море.
+</p>
+
+<a href="#contacts" class="glass-btn">
++380 67 609 9733
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2 id="locationTitle">Локація</h2>
+<p id="locationSub">
+вулиця Перемоги, 38, Фонтанка
+</p>
+</div>
+
+<div class="map-wrap">
+
+<iframe
+src="https://www.google.com/maps?q=вулиця+Перемоги+38+Фонтанка&output=embed">
+</iframe>
+
+</div>
+
+</section>
+
+<section id="contacts">
+
+<div class="section-title">
+<h2 id="contactsTitle">Контакти</h2>
+<p id="contactsSub">
+Зв'яжіться з нами
+</p>
+</div>
+
+<div class="contacts">
+
+<div class="contact-card">
+
+<h3 id="phoneTitle">Телефон</h3>
+
+<p>
++380 67 609 9733
+</p>
+
+<a class="glass-btn" href="tel:+380676099733" id="callBtn">
+Зателефонувати
+</a>
+
+</div>
+
+<div class="contact-card">
+
+<h3 id="messengerTitle">Месенджери</h3>
+
+<a class="glass-btn"
+href="https://t.me/+380676099733">
+Telegram
+</a>
+
+<a class="glass-btn"
+href="https://wa.me/380676099733">
+WhatsApp
+</a>
+
+</div>
+
+<div class="contact-card">
+
+<h3 id="addressTitle">Адреса</h3>
+
+<p>
+вулиця Перемоги, 38, Фонтанка
+</p>
+
+<a class="glass-btn"
+href="https://maps.google.com">
+<span id="mapsBtn">
+Відкрити в Google Maps
+</span>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Terrasa — Boutique Coastal Retreat
+</p>
+
+</footer>
+
+<script>
+
+const translations = {
+
+uk:{
+
+brandTag:"Boutique Coastal Retreat",
+
+heroTitle:"Terrasa — Теплий відпочинок на березі Чорного моря",
+
+heroSubtitle:"Місце, де закати пахнуть морем, а кожна кімната — як обійми теплого світла.",
+
+book:"Забронювати",
+
+gallery:"Галерея",
+
+cardTitle:"Забронюйте номер",
+
+cardText:"Номери з видом на море та атмосферою затишку.",
+
+galleryTitle:"Галерея",
+
+gallerySub:"Атмосфера теплого відпочинку біля моря.",
+
+caption1:"Затишний номер",
+
+caption2:"Веранда біля моря",
+
+caption3:"Номер з видом",
+
+caption4:"Головний вид",
+
+aboutTitle:"Про нас",
+
+aboutSub:"Boutique hotel на березі Чорного моря.",
+
+aboutText:"Terrasa — це атмосферний boutique hotel біля моря з теплим дизайном, затишними номерами та спокійною атмосферою.",
+
+aboutText2:"Ідеальне місце для відпочинку, натхнення та красивих заходів сонця.",
+
+roomsTitle:"Номери",
+
+roomsText:"Комфортні номери з Wi-Fi, кондиціонером та видом на море.",
+
+locationTitle:"Локація",
+
+contactsTitle:"Контакти",
+
+contactsSub:"Зв'яжіться з нами",
+
+phoneTitle:"Телефон",
+
+messengerTitle:"Месенджери",
+
+addressTitle:"Адреса",
+
+callBtn:"Зателефонувати",
+
+mapsBtn:"Відкрити в Google Maps"
+
+},
+
+en:{
+
+brandTag:"Boutique Coastal Retreat",
+
+heroTitle:"Terrasa — Warm retreat on the Black Sea",
+
+heroSubtitle:"A place where sunsets smell like the sea and every room feels warm and cozy.",
+
+book:"Book now",
+
+gallery:"Gallery",
+
+cardTitle:"Book a room",
+
+cardText:"Sea view rooms with cozy atmosphere.",
+
+galleryTitle:"Gallery",
+
+gallerySub:"Warm seaside atmosphere.",
+
+caption1:"Cozy room",
+
+caption2:"Sea veranda",
+
+caption3:"Room with a view",
+
+caption4:"Main view",
+
+aboutTitle:"About us",
+
+aboutSub:"Boutique hotel by the Black Sea.",
+
+aboutText:"Terrasa is a cozy boutique hotel near the sea with warm design and relaxing atmosphere.",
+
+aboutText2:"Perfect place for rest, inspiration and beautiful sunsets.",
+
+roomsTitle:"Rooms",
+
+roomsText:"Comfortable rooms with Wi-Fi, air conditioning and sea view.",
+
+locationTitle:"Location",
+
+contactsTitle:"Contacts",
+
+contactsSub:"Contact us",
+
+phoneTitle:"Phone",
+
+messengerTitle:"Messengers",
+
+addressTitle:"Address",
+
+callBtn:"Call now",
+
+mapsBtn:"Open in Google Maps"
+
+}
+
+};
+
+function setLanguage(lang){
+
+const t = translations[lang];
+
+document.documentElement.lang = lang;
+
+document.getElementById("brandTag").textContent = t.brandTag;
+
+document.getElementById("heroTitle").textContent = t.heroTitle;
+
+document.getElementById("heroSubtitle").textContent = t.heroSubtitle;
+
+document.getElementById("bookTop").textContent = t.book;
+
+document.getElementById("bookNow").textContent = t.book;
+
+document.getElementById("bookCard").textContent = t.book;
+
+document.getElementById("galleryBtn").textContent = t.gallery;
+
+document.getElementById("cardTitle").textContent = t.cardTitle;
+
+document.getElementById("cardText").textContent = t.cardText;
+
+document.getElementById("galleryTitle").textContent = t.galleryTitle;
+
+document.getElementById("gallerySub").textContent = t.gallerySub;
+
+document.getElementById("caption1").textContent = t.caption1;
+
+document.getElementById("caption2").textContent = t.caption2;
+
+document.getElementById("caption3").textContent = t.caption3;
+
+document.getElementById("caption4").textContent = t.caption4;
+
+document.getElementById("aboutTitle").textContent = t.aboutTitle;
+
+document.getElementById("aboutSub").textContent = t.aboutSub;
+
+document.getElementById("aboutText").textContent = t.aboutText;
+
+document.getElementById("aboutText2").textContent = t.aboutText2;
+
+document.getElementById("roomsTitle").textContent = t.roomsTitle;
+
+document.getElementById("roomsText").textContent = t.roomsText;
+
+document.getElementById("locationTitle").textContent = t.locationTitle;
+
+document.getElementById("contactsTitle").textContent = t.contactsTitle;
+
+document.getElementById("contactsSub").textContent = t.contactsSub;
+
+document.getElementById("phoneTitle").textContent = t.phoneTitle;
+
+document.getElementById("messengerTitle").textContent = t.messengerTitle;
+
+document.getElementById("addressTitle").textContent = t.addressTitle;
+
+document.getElementById("callBtn").textContent = t.callBtn;
+
+document.getElementById("mapsBtn").textContent = t.mapsBtn;
+
+}
+
+const ukBtn = document.getElementById("lang-uk");
+const enBtn = document.getElementById("lang-en");
+
+ukBtn.onclick = () => {
+
+ukBtn.classList.add("active");
+enBtn.classList.remove("active");
+
+setLanguage("uk");
+
+};
+
+enBtn.onclick = () => {
+
+enBtn.classList.add("active");
+ukBtn.classList.remove("active");
+
+setLanguage("en");
+
+};
+
+</script>
+
+</body>
+</html>
